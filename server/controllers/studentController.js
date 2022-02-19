@@ -1,5 +1,9 @@
-import StudentSchema from "../models/student.model";
+const StudentSchema = require("../models/student.model");
 
+
+module.exports = {
+    studentController:getStudents,
+}
 // router.get("/", (req, res) => {
 //   res.render("student/addOrEdit", {
 //     viewTitle: "Insert Sttudent",
@@ -44,15 +48,19 @@ import StudentSchema from "../models/student.model";
 //   );
 // }
 
-const getStudents = async (req, res) => {
-  try {
-    const students = await Student.find();
+function getStudents(req,res){
+    res.render('index');
+}
 
-    res.status(200).json(students);
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-};
+// const getStudents =  (req, res) => {
+//   try {
+//     // const students = await Student.find();
+
+//     res.status(200).json(students);
+//   } catch (error) {
+//     res.status(404).json({ message: error.message });
+//   }
+// };
 // router.get("/list", (req, res) => {
 //   Student.find((err, docs) => {
 //     if (!err) {
@@ -87,8 +95,8 @@ const getStudents = async (req, res) => {
 //   });
 // });
 
-const studentController = {
-  getStudents,
-}
+// const studentController = {
+//   getStudents,
+// }
 
 // module.exports = router;
